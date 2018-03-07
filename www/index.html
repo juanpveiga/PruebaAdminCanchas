@@ -159,7 +159,7 @@
                     success: function (response) {
 
                         for (var i = 0; i < response.canchas.length; i++) {
-                            $("#listCanchas").append("<li><a href='#index'"
+                            $("#listCanchas").append("<li ><a style='color:red' href='#index'"
                                     + "onclick='cargarDetalle($(this).data(\"nombre\"))' data-nombre='"
                                     + response.canchas[i].nombre
                                     + "'><img src='http://quierojugar.tribus.com.uy/canchas/" + response.canchas[i].foto_inicial
@@ -168,7 +168,7 @@
                                     //+ response.canchas[i].nombre + ")'/> "
                                     + "<h2>" + response.canchas[i].nombre + "</h2><p>"
                                     + response.canchas[i].direccion + "<p/></a>"
-                                    + "<a href='#agregarFavorito' "
+                                    + "<a style='color:red' href='#agregarFavorito' "
                                     + "onclick='cargarNombreFavorito($(this).data(\"nombre\"))' data-nombre='"
                                     + response.canchas[i].nombre + "'"
                                     + "data-rel='popup' data-position-to='window' data-transition='pop'>Favoritos</a></li>");
@@ -225,6 +225,15 @@
 
                 });
 
+            }
+            
+            function goool()
+            {
+                var my_media;
+            alert(my_media);
+              my_media = new Media('cdvfile://localhost/temporary/Gool.mp3');
+                my_media.play();
+             alert(my_media);
             }
             
             
@@ -301,6 +310,9 @@ initMap();
         navigator.geolocation.getCurrentPosition(onSuccess,
                                          onError,
                                          { timeout: 30000 });
+        
+         
+            
         
     }
             
@@ -692,12 +704,7 @@ function onFailF(message) {
     alert('Failed because: ' + message);
 }
             
-            function goool()
-            {
-             var my_media = new Media('cdvfile://localhost/temporary/Gool.mp3',   
-             my_media.play());
-            }
-            
+           
         </script>
 
 
@@ -811,7 +818,7 @@ function onFailF(message) {
                 <p id="bienvenida"></p>
                 <p id="mensajeGeneral"></p>
                 <a href="#canchas" onclick="takeFoto()" data-icon="camera" id="btnCamera"></a>
-                
+                <audio id="audio"></audio>
                 <img  id="fotoInicio" class="imgRedonda"/>
                    <a data-position="fixed" href="#popupMenu" data-rel="popup"
                       data-transition="slideup"
@@ -839,7 +846,7 @@ function onFailF(message) {
                     </ul>
                 </div><!-- /popupFavoritos -->
 
-                <ul id="listCanchas" data-role="listview" data-split-icon="star" data-split-theme="a" data-inset="true">
+                <ul id="listCanchas"  data-role="listview" data-split-icon="star" data-split-theme="a" data-inset="true">
 
                 </ul >
                 <div data-role="popup" id="agregarFavorito" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
